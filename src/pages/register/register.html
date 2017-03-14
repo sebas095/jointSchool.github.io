@@ -10,42 +10,44 @@
     <button ion-button menuToggle left>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Register</ion-title>
+    <!-- <ion-title>Register</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding class="register">
+  <h2>REGISTER</h2>
   <ion-item>
-    <ion-label>Nombre</ion-label>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item class="margin">
+    <ion-label floating>Apellidos</ion-label>
     <ion-input></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Apellidos</ion-label>
+    <ion-label floating>Nombre de Usuario</ion-label>
     <ion-input></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label>Nombre de Usuario</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
+  <ion-item class="margin">
     <ion-label>Género</ion-label>
     <ion-select>
       <ion-option value="f" selected="true">Femenino</ion-option>
       <ion-option value="m">Masculino</ion-option>
+      <ion-option value="o">Otro</ion-option>
     </ion-select>
   </ion-item>
 
-  <ion-item>
-    <ion-label>Correo Electrónico</ion-label>
+  <ion-item class="margin">
+    <ion-label floating>Correo Electrónico</ion-label>
     <ion-input type="email"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label>Contraseña</ion-label>
+  <ion-item class="margin">
+    <ion-label floating>Contraseña</ion-label>
     <ion-input type="password"></ion-input>
   </ion-item>
 
