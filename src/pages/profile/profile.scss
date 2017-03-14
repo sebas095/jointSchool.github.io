@@ -1,0 +1,37 @@
+page-profile {
+  .actions {
+    text-align: center;
+    margin-top: 20px;
+
+    button {
+      background-color: #dd3cbe;
+    }
+  }
+
+  .icons {
+    display: inline-block;
+    margin-left: 20%;
+    font-size: 5em;
+  }
+
+  .starts {
+    display: inline-block;
+    font-size: 3rem;
+  }
+
+  .user {
+    text-align: center;
+    font-size: 5em;
+    ion-label {
+      font-size: .4em;
+    }
+  }
+
+  .toolbar-background {
+    background-color: #dd3cbe;
+  }
+
+  .profile {
+    background-color: #f669e4;
+  }
+}
