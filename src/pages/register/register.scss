@@ -3,7 +3,6 @@ page-register {
     // text-align: center;
     // margin-top: 20px;
 
-
     button {
       // background-color: #f59f3a;
       border: solid 1px #2E4476;
@@ -24,22 +23,24 @@ page-register {
       cursor: pointer;
       border: none;
       border-radius: 5px;
-    }
-    button:active {
-      border: solid 1px #2E4476;
-      background: #3B5999;
-      -webkit-box-shadow: 0px 1px 0px 0px #2E4476;
-    	box-shadow: 0px 2px 0px 0px #2E4476;
-      -webkit-transition: all 0s ease-out;
-      -moz-transition: all 0s ease-out;
-      -o-transition: all 0s ease-out;
-      -ms-transition: all 0s ease-out;
+
+      &:active {
+        border: solid 1px #2E4476;
+        background: #3B5999;
+        -webkit-box-shadow: 0px 1px 0px 0px #2E4476;
+        box-shadow: 0px 2px 0px 0px #2E4476;
+        -webkit-transition: all 0s ease-out;
+        -moz-transition: all 0s ease-out;
+        -o-transition: all 0s ease-out;
+        -ms-transition: all 0s ease-out;
+      }
     }
   }
 
   .title {
     color: #db830e;
   }
+
   .toolbar-background {
     background-color: #f5ab35;
   }
