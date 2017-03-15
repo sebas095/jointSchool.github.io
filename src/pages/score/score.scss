@@ -1,0 +1,49 @@
+page-score {
+  .toolbar-background {
+    background-color: #27c6b3;
+  }
+
+  .score {
+    background-color: #3af1eb;
+  }
+
+  ion-content {
+    .icon {
+      font-size: 12rem;
+      text-align: center;
+      color: #27c6b3;
+    }
+
+    .icons {
+      font-size: 10rem;
+      text-align: center;
+    }
+  }
+
+
+  ion-card-content {
+    background-color: #27c6b3;
+  }
+
+  .profile {
+    display: inline-block;
+    margin-right: 25px;
+
+    ion-icon {
+      font-size: 8rem;
+      color: #000;
+    }
+  }
+
+  .user {
+    display: inline-block;
+    p {
+      color: #fff;
+    }
+  }
+
+  .user ion-icon {
+    font-size: 5rem;
+    color: #e9981e;
+  }
+}

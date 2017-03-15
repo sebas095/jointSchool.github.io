@@ -7,6 +7,7 @@ import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { ChallengePage } from '../pages/challenge/challenge';
+import { ScorePage } from '../pages/score/score';
 
 interface IPage {
   title: string;
@@ -30,7 +31,8 @@ export class MyApp {
       { title: 'Register', component: RegisterPage },
       { title: 'Login', component: LoginPage },
       { title: 'Profile', component: ProfilePage },
-      { title: 'Challenge', component: ChallengePage }
+      { title: 'Challenge', component: ChallengePage },
+      { title: 'Score', component: ScorePage }
     ];
   }
 

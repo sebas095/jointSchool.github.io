@@ -6,6 +6,8 @@ import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { ChallengePage } from '../pages/challenge/challenge';
+import { ScorePage } from '../pages/score/score';
+import { GamePage } from '../pages/game/game';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ChallengePage } from '../pages/challenge/challenge';
     LoginPage,
     ProfilePage,
     HomePage,
-    ChallengePage
+    ChallengePage,
+    ScorePage,
+    GamePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +30,9 @@ import { ChallengePage } from '../pages/challenge/challenge';
     LoginPage,
     ProfilePage,
     HomePage,
-    ChallengePage
+    ChallengePage,
+    ScorePage,
+    GamePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
