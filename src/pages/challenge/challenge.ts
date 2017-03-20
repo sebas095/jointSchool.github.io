@@ -14,7 +14,7 @@ import { GamePage } from '../game/game';
 })
 export class ChallengePage {
   gamePage = GamePage;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
