@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+import { EditPage } from '../pages/edit/edit';
 import { ChallengePage } from '../pages/challenge/challenge';
 import { ScorePage } from '../pages/score/score';
 import { GamePage } from '../pages/game/game';
@@ -33,6 +34,7 @@ const firebaseAuthConfig = {
     RegisterPage,
     LoginPage,
     ProfilePage,
+    EditPage,
     HomePage,
     ChallengePage,
     ScorePage,
@@ -49,6 +51,7 @@ const firebaseAuthConfig = {
     RegisterPage,
     LoginPage,
     ProfilePage,
+    EditPage,
     HomePage,
     ChallengePage,
     ScorePage,
