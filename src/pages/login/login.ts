@@ -2,12 +2,17 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { ResetPasswordPage } from '../reset-password/reset-password';
+import { ProfilePage } from '../profile/profile';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  user: IUser = {
+    email: '',
+    password: ''
+  };
 
   constructor(public navCtrl: NavController, private auth: AuthService) {}
 
@@ -16,7 +21,20 @@ export class LoginPage {
     console.log(this.auth.fireAuth);
   }
 
+  signIn() {
+    this.auth.loginUser(this.user.email, this.user.password)
+      .then(user => {
+        this.navCtrl.setRoot(ProfilePage);
+        console.log("USER: ", user);
+      });
+  }
+
   resetPassword() {
     this.navCtrl.push(ResetPasswordPage);
   }
+}
+
+interface IUser {
+  email: string;
+  password: string;
 }

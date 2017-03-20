@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { AngularFire } from 'angularfire2';
+import { AuthService } from '../services/auth.service';
 
 import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
@@ -21,19 +23,34 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = HomePage;
   pages: Array<IPage>;
+  isLogin: boolean = false;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, private af: AngularFire, private auth: AuthService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
+    const loginMenu = [
       { title: 'Home', component: HomePage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'Login', component: LoginPage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Challenge', component: ChallengePage },
       { title: 'Score', component: ScorePage }
     ];
+
+    const defaultMenu = [
+      { title: 'Home', component: HomePage },
+      { title: 'Register', component: RegisterPage },
+      { title: 'Login', component: LoginPage },
+    ];
+
+     this.af.auth.subscribe(user => {
+      if (user) {
+        this.isLogin = true;
+        this.pages = loginMenu;
+      } else {
+        this.isLogin = false;
+        this.pages = defaultMenu;
+      }
+    });
   }
 
   initializeApp() {
@@ -49,5 +66,13 @@ export class MyApp {
     // Reset the content nav to have just this page
     // We wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  signOut() {
+    this.auth.logoutUser()
+      .then(() => {
+        this.nav.setRoot(HomePage);
+        this.isLogin = false;
+      });
   }
 }
