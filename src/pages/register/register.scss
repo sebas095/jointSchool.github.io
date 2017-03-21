@@ -5,12 +5,12 @@ page-register {
 
     button {
       // background-color: #f59f3a;
-      border: solid 1px #2E4476;
-      background: #3B5999;
-      -webkit-box-shadow: 0px 5px 0px 0px #2E4476;
-      box-shadow: 0px 5px 0px 0px #2E4476;
+      border: solid 1px #24844b;
+      background: #26a65b;
+      -webkit-box-shadow: 0px 5px 0px 0px #24844b;
+      box-shadow: 0px 5px 0px 0px #24844b;
       transition: all 0s ease-out;
-      height: 35px;
+      height: 40px;
       display: block;
       color: #fff;
       text-decoration: none;
@@ -23,12 +23,13 @@ page-register {
       cursor: pointer;
       border: none;
       border-radius: 5px;
+      width: 90%;
 
       &:active {
-        border: solid 1px #2E4476;
-        background: #3B5999;
-        -webkit-box-shadow: 0px 1px 0px 0px #2E4476;
-        box-shadow: 0px 2px 0px 0px #2E4476;
+        border: solid 1px #24844b;
+        background: #26a65b;
+        -webkit-box-shadow: 0px 1px 0px 0px #24844b;
+        box-shadow: 0px 2px 0px 0px #24844b;
         -webkit-transition: all 0s ease-out;
         -moz-transition: all 0s ease-out;
         -o-transition: all 0s ease-out;

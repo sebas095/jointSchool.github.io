@@ -19,6 +19,26 @@
   // * {
   //   font-family: 'Annie Use Your Telescope', cursive;
   // }
+
+  .text-input {
+    text-align: center;
+    font-size: 1.5em;
+
+    &:focus {
+      color: #000;
+    }
+  }
+
+  input:focus::-webkit-input-placeholder { color:transparent; }
+  input:focus:-moz-placeholder { color:transparent; }
+  input:focus::-moz-placeholder { color:transparent; }
+  input:focus:-ms-input-placeholder { color:transparent; }
+
+  .item-inner {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+
   .center {
     text-align: center;
   }

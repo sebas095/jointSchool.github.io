@@ -18,16 +18,16 @@
 <ion-content padding class="register">
   <h1 class="center title">Registro</h1>
   <ion-item >
-    <ion-label>Nombre</ion-label>
-    <ion-input type="text" [(ngModel)]="user.firstname"></ion-input>
+    <!-- <ion-label>Nombre</ion-label> -->
+    <ion-input type="text" [(ngModel)]="user.firstname" placeholder="Nombre"></ion-input>
   </ion-item>
   <ion-item >
-    <ion-label>Apellidos</ion-label>
-    <ion-input type="text" [(ngModel)]="user.lastname"></ion-input>
+    <!-- <ion-label>Apellidos</ion-label> -->
+    <ion-input type="text" [(ngModel)]="user.lastname" placeholder="Apellidos"></ion-input>
   </ion-item>
   <ion-item >
-    <ion-label>Nombre de Usuario</ion-label>
-    <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+    <!-- <ion-label>Nombre de Usuario</ion-label> -->
+    <ion-input type="text" [(ngModel)]="user.username" placeholder="Nombre de Usuario"></ion-input>
   </ion-item>
   <ion-item >
     <ion-label>Género</ion-label>
@@ -38,12 +38,12 @@
     </ion-select>
   </ion-item>
   <ion-item >
-    <ion-label>Correo Electrónico</ion-label>
-    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+    <!-- <ion-label>Correo Electrónico</ion-label> -->
+    <ion-input type="email" [(ngModel)]="user.email" placeholder="Correo Electrónico"></ion-input>
   </ion-item>
   <ion-item >
-    <ion-label>Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    <!-- <ion-label>Contraseña</ion-label> -->
+    <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña"></ion-input>
   </ion-item>
   <div class="actions">
     <button ion-button (click)="onSubmit()">CREAR CUENTA</button>
