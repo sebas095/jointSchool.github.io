@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { EditPage } from '../edit/edit';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'page-profile',
@@ -8,7 +9,7 @@ import { EditPage } from '../edit/edit';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, private auth: AuthService) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');

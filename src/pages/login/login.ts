@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { ProfilePage } from '../profile/profile';
+import { RegisterPage } from '../register/register';
 
 @Component({
   selector: 'page-login',
@@ -31,6 +32,10 @@ export class LoginPage {
 
   resetPassword() {
     this.navCtrl.push(ResetPasswordPage);
+  }
+
+  register() {
+    this.navCtrl.setRoot(RegisterPage);
   }
 }
 
