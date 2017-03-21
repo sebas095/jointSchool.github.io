@@ -22,7 +22,7 @@
 
   .text-input {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
 
     &:focus {
       color: #000;
@@ -69,6 +69,7 @@
   ion-title {
     font-family: 'Annie Use Your Telescope', cursive;
     padding: 0 !important;
+    text-align: center;
   }
 
   ion-content {
@@ -90,7 +91,7 @@
   }
 
   .menu ion-content {
-    background-color: #fff;
+    background-color: #45a1e3;
   }
 }
 
