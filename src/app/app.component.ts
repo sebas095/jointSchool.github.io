@@ -1,78 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
-import { AngularFire } from 'angularfire2';
-import { AuthService } from '../services/auth.service';
-
-import { HomePage } from '../pages/home/home';
-import { RegisterPage } from '../pages/register/register';
-import { LoginPage } from '../pages/login/login';
-import { ProfilePage } from '../pages/profile/profile';
-import { ChallengePage } from '../pages/challenge/challenge';
-import { ScorePage } from '../pages/score/score';
-
-interface IPage {
-  title: string;
-  component: any;
-}
+import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: 'app.html'
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-  rootPage: any = HomePage;
-  pages: Array<IPage>;
-  isLogin: boolean = false;
-
-  constructor(public platform: Platform, private af: AngularFire, private auth: AuthService) {
-    this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    const loginMenu = [
-      { title: 'Home', component: HomePage },
-      { title: 'Profile', component: ProfilePage },
-      { title: 'Challenge', component: ChallengePage },
-      { title: 'Score', component: ScorePage }
-    ];
-
-    const defaultMenu = [
-      { title: 'Home', component: HomePage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'Login', component: LoginPage },
-    ];
-
-     this.af.auth.subscribe(user => {
-      if (user) {
-        this.isLogin = true;
-        this.pages = loginMenu;
-      } else {
-        this.isLogin = false;
-        this.pages = defaultMenu;
-      }
-    });
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-    });
-  }
-
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // We wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
-
-  signOut() {
-    this.auth.logoutUser()
-      .then(() => {
-        this.nav.setRoot(HomePage);
-        this.isLogin = false;
-      });
-  }
+export class AppComponent {
+  title = 'app works!';
 }
