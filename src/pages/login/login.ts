@@ -30,11 +30,11 @@ export class LoginPage {
       });
   }
 
-  resetPassword() {
+  goToResetPassword() {
     this.navCtrl.push(ResetPasswordPage);
   }
 
-  register() {
+  createAccount() {
     this.navCtrl.setRoot(RegisterPage);
   }
 }

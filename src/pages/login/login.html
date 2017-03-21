@@ -15,22 +15,21 @@
 
 </ion-header>
 
-
 <ion-content padding class="login">
   <h1 class="center title">Iniciar Sesión</h1>
   <ion-item>
-    <ion-label>Correo Electrónico</ion-label>
-    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+    <!-- <ion-label>Correo Electrónico</ion-label> -->
+    <ion-input type="email" [(ngModel)]="user.email" placeholder="Correo Electrónico"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    <!-- <ion-label>Contraseña</ion-label> -->
+    <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña"></ion-input>
   </ion-item>
 
   <div class="links">
-    <button ion-button color="light" clear (click)="register()">¿No estas registrado?</button>
-    <button ion-button color="light" clear (click)="resetPassword()">¿Olvidaste tú contraseña?</button>
+    <button ion-button color="light" clear (click)="createAccount()">¿No estas registrado?</button>
+    <button ion-button color="light" clear (click)="goToResetPassword()">¿Olvidaste tú contraseña?</button>
   </div>
 
   <div class="actions">
