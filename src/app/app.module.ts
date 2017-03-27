@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './services/auth.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -15,7 +17,19 @@ import { GameComponent } from './components/game/game.component';
 import { ChallengeComponent } from './components/challenge/challenge.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
-import { AuthService } from './services/auth.service';
+// AF2 settings
+const firebaseConfig = {
+  apiKey: "AIzaSyBPisog4PaukdlLPvGQTLaJRwTMdwH1mgU",
+  authDomain: "jointschool-388bb.firebaseapp.com",
+  databaseURL: "https://jointschool-388bb.firebaseio.com",
+  storageBucket: "jointschool-388bb.appspot.com",
+  messagingSenderId: "566779487328"
+};
+
+// const firebaseAuthConfig = {
+//   provider: AuthProviders.Password,
+//   method: AuthMethods.Password
+// };
 
 @NgModule({
   declarations: [
@@ -34,7 +48,8 @@ import { AuthService } from './services/auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
