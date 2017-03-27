@@ -30,20 +30,30 @@
 
   <div class="row omb_row-sm-offset-3">
     <div class="col-xs-12 col-sm-6">
-      <form class="omb_loginForm" action="" autocomplete="off" method="POST">
-        <div class="input-group">
+      <div class="alert alert-danger" *ngIf="message">
+        {{message}}
+      </div>
+      <form class="omb_loginForm" (ngSubmit)="signInEmail()" #userForm="ngForm">
+        <div class="input-group form-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input type="email" [(ngModel)]="user.email" class="form-control" name="username" placeholder="email address">
+          <input required type="email" [(ngModel)]="user.email" class="form-control"
+                name="username" placeholder="email address" #email="ngModel">
+          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            Email is Required
+          </div>
         </div>
-        <span class="help-block"></span>
 
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-          <input type="password" [(ngModel)]="user.password" class="form-control" name="password" placeholder="Password">
+          <input required type="password" [(ngModel)]="user.password" class="form-control"
+                name="password" placeholder="Password" #password="ngModel">
+          <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+            Password is Required
+          </div>
         </div><br>
 
         <!-- <span class="help-block">Password error</span> -->
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!userForm.form.valid" type="submit">Login</button>
       </form>
     </div>
   </div>

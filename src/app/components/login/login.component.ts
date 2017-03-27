@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  message: string = '';
   user: IUser = {
     email: '',
     password: ''
@@ -23,6 +24,9 @@ export class LoginComponent implements OnInit {
     this.auth.loginUser(this.user.email, this.user.password)
       .then(user => {
         this.router.navigate(['/user/profile']);
+      }).catch(err => {
+        this.message = err.message;
+        this.router.navigate(['/login']);
       });
   }
 
