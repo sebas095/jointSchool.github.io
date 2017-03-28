@@ -51,6 +51,9 @@ export class LoginComponent implements OnInit {
         });
 
         this.router.navigate(['/user/edit']);
+      }).catch(err => {
+        this.message = err.message;
+        this.router.navigate(['/login']);
       });
   }
 
@@ -64,6 +67,9 @@ export class LoginComponent implements OnInit {
           username: user.auth.displayName || user.auth.email,
           email: user.auth.email,
           gender: ''
+        }).catch(err => {
+          this.message = err.message;
+          this.router.navigate(['/login']);
         });
 
         this.router.navigate(['/user/edit']);

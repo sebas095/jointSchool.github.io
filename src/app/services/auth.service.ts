@@ -55,6 +55,7 @@ export class AuthService {
   }
 
   logoutUser(): firebase.Promise<any> {
+    firebase.database().goOffline();
     return this.af.auth.logout();
   }
 
