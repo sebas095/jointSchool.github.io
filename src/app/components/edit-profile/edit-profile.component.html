@@ -1,3 +1,54 @@
-<p>
-  edit-profile works!
-</p>
+<div class="omb_login">
+  <h3 class="omb_authTitle">Edit</h3>
+  <div class="row omb_row-sm-offset-3">
+    <div class="col-xs-12 col-sm-6">
+      <div class="alert alert-danger" *ngIf="message">
+        {{message}}
+      </div>
+      <form class="omb_loginForm" (ngSubmit)="onSave()" #editForm="ngForm">
+        <div class="input-group form-group">
+          <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+          <input required type="text" [(ngModel)]="auth.currentUser.firstname" class="form-control"
+                name="firstname" placeholder="Ingrese nombre" #firstname="ngModel">
+        </div>
+        <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+          Firstname is Required
+        </div>
+
+        <div class="input-group form-group">
+          <span class="input-group-addon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+          <input required type="text" [(ngModel)]="auth.currentUser.lastname" class="form-control"
+                name="lastname" placeholder="Ingrese apellidos" #lastname="ngModel">
+        </div>
+        <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+          Lastname is Required
+        </div>
+
+        <div class="input-group form-group">
+          <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+          <input required type="text" [(ngModel)]="auth.currentUser.username" class="form-control"
+                name="username" placeholder="Ingrese nombre de usuario" #username="ngModel">
+        </div>
+        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+          Username is Required
+        </div>
+
+        <div class="input-group form-group">
+          <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+          <select class="form-control" name="gender" required [(ngModel)]="auth.currentUser.gender" #gender="ngModel">
+            <option value="f" [selected]="auth.currentUser.gender === f">Femenino</option>
+            <option value="m" [selected]="auth.currentUser.gender === m">Masculino</option>
+            <option value="o" [selected]="auth.currentUser.gender === o">Otro</option>
+          </select>
+        </div>
+        <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">
+          Gender is Required
+        </div><br>
+
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!editForm.form.valid" type="submit">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

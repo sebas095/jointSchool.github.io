@@ -11,11 +11,10 @@ export class AuthService {
     this.af.auth.subscribe(user => {
       if (user) {
         this.fireAuth = user;
-        // console.log(user);
-        // const userRef = this.af.database.object(`/users/${this.fireAuth.uid}`, { preserveSnapshot: true });
-        // userRef.subscribe(data => {
-        //   this.currentUser = data.val();
-        // });
+        const userRef = this.af.database.object(`/users/${this.fireAuth.uid}`, { preserveSnapshot: true });
+        userRef.subscribe(data => {
+          this.currentUser = data.val();
+        });
       } else {
         this.fireAuth = {};
         this.currentUser = {};
