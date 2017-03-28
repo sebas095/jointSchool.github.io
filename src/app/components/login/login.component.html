@@ -37,23 +37,25 @@
         <div class="input-group form-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
           <input required type="email" [(ngModel)]="user.email" class="form-control"
-                name="username" placeholder="email address" #email="ngModel">
-          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-            Email is Required
-          </div>
+                name="email" placeholder="email address" #email="ngModel">
+        </div>
+        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+          Email is Required
         </div>
 
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
           <input required type="password" [(ngModel)]="user.password" class="form-control"
                 name="password" placeholder="Password" #password="ngModel">
-          <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-            Password is Required
-          </div>
+        </div><br>
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+          Password is Required
         </div><br>
 
         <!-- <span class="help-block">Password error</span> -->
-        <button class="btn btn-lg btn-primary btn-block" [disabled]="!userForm.form.valid" type="submit">Login</button>
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!userForm.form.valid" type="submit">
+          Login
+        </button>
       </form>
     </div>
   </div>
