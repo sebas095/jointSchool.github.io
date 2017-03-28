@@ -23,10 +23,12 @@ export class AuthService {
   }
 
   signupUser(email: string, password: string): firebase.Promise<any> {
+    firebase.database().goOnline();
     return this.af.auth.createUser({email, password});
   }
 
   loginUser(email: string, password: string): firebase.Promise<any> {
+    firebase.database().goOnline();
     return this.af.auth.login({email, password}, {
       provider: AuthProviders.Password,
       method: AuthMethods.Password
@@ -34,6 +36,7 @@ export class AuthService {
   }
 
   loginUserWithFacebook(): firebase.Promise<any> {
+    firebase.database().goOnline();
     return this.af.auth.login({
       provider: AuthProviders.Facebook,
       method: AuthMethods.Redirect
@@ -41,6 +44,7 @@ export class AuthService {
   }
 
   loginUserWithTwitter(): firebase.Promise<any> {
+    firebase.database().goOnline();
     return this.af.auth.login({
       provider: AuthProviders.Twitter,
       method: AuthMethods.Popup
@@ -48,6 +52,7 @@ export class AuthService {
   }
 
   loginUserWithGoogle(): firebase.Promise<any> {
+    firebase.database().goOnline();
     return this.af.auth.login({
       provider: AuthProviders.Google,
       method: AuthMethods.Popup

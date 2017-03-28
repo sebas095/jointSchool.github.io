@@ -41,16 +41,20 @@ export class LoginComponent implements OnInit {
   signInTwitter() {
     this.auth.loginUserWithTwitter()
       .then(user => {
-        this.af.database.object(`/users/${user.uid}`).set({
-          uid: user.uid,
-          firstname: user.auth.displayName || user.auth.email,
-          lastname: '',
-          username: user.auth.displayName || user.auth.email,
-          email: user.auth.email,
-          gender: ''
-        });
-
-        this.router.navigate(['/user/edit']);
+        this.af.database.object(`/users/${user.uid}`, { preserveSnapshot: true })
+          .subscribe(usr => {
+            if (!usr.val()) {
+              this.af.database.object(`/users/${user.uid}`).set({
+                uid: user.uid,
+                firstname: user.auth.displayName || user.auth.email,
+                lastname: '',
+                username: user.auth.displayName || user.auth.email,
+                email: user.auth.email,
+                gender: 'o'
+              });
+            }
+            this.router.navigate(['/user/edit']);
+          });
       }).catch(err => {
         this.message = err.message;
         this.router.navigate(['/login']);
@@ -59,21 +63,25 @@ export class LoginComponent implements OnInit {
 
   signInGoogle() {
     this.auth.loginUserWithGoogle()
-      .then(user => {
-        this.af.database.object(`/users/${user.uid}`).set({
-          uid: user.uid,
-          firstname: user.auth.displayName || user.auth.email,
-          lastname: '',
-          username: user.auth.displayName || user.auth.email,
-          email: user.auth.email,
-          gender: ''
-        }).catch(err => {
-          this.message = err.message;
-          this.router.navigate(['/login']);
+    .then(user => {
+      this.af.database.object(`/users/${user.uid}`, { preserveSnapshot: true })
+        .subscribe(usr => {
+          if (!usr.val()) {
+            this.af.database.object(`/users/${user.uid}`).set({
+              uid: user.uid,
+              firstname: user.auth.displayName || user.auth.email,
+              lastname: '',
+              username: user.auth.displayName || user.auth.email,
+              email: user.auth.email,
+              gender: 'o'
+            });
+          }
+          this.router.navigate(['/user/edit']);
         });
-
-        this.router.navigate(['/user/edit']);
-      });
+    }).catch(err => {
+      this.message = err.message;
+      this.router.navigate(['/login']);
+    });
   }
 
   goToResetPassword() {
