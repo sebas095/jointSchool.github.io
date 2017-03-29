@@ -1,3 +1,21 @@
-<p>
-  game works!
-</p>
+<div class="text-center">
+  <h3>Reto</h3>
+  <!-- <i id="game" class="fa fa-book" aria-hidden="true"></i> -->
+  <div class="time">
+    <img src="/assets/img/clock.png" alt="clock">
+    <h1>{{seconds | number: '2.0'}} s</h1>
+  </div>
+  <button class="btn btn-danger" *ngIf="!play" (click)="start()">Empezar</button>
+</div>
+
+<div class="game" *ngIf="play">
+  <div class="card">
+    <div class="container">
+      4 + 5 * 7 =
+      <input type="text"> ?
+    </div>
+  </div>
+  <div class="opt">
+    <button class="btn btn-success">Terminar</button>
+  </div>
+</div>
