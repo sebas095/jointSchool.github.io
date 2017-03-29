@@ -1,0 +1,62 @@
+#cup {
+  font-size: 10rem;
+  color: #f9b229;
+}
+
+.card {
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.big {
+  font-size: 5rem;
+}
+
+.topics {
+  margin-bottom: 25px;
+}
+
+.topics .card {
+  cursor: pointer;
+  background-color: #fbcfb6;
+  margin-bottom: 5px;
+}
+
+.scores .card {
+  width: 80%;
+  background-color: #f6f1d4;
+  margin: 8px 0;
+}
+
+.profile {
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.user {
+  display: inline-block;
+}
+
+.user i {
+  font-size: 4rem;
+  color: #eca70e;
+}
+
+.icon {
+  font-size: 8rem;
+}
