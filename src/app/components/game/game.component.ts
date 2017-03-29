@@ -9,6 +9,7 @@ export class GameComponent implements OnInit {
   play: boolean = false;
   seconds: number = 10;
   sound: any;
+  interval: any;
 
   constructor() {
   }
@@ -17,7 +18,7 @@ export class GameComponent implements OnInit {
   }
 
   start() {
-    setInterval(() => this.tick(), 1000);
+    this.interval = setInterval(() => this.tick(), 1000);
     this.play = true;
     this.sound = new Audio();
     this.sound.src = "/assets/media/clock.mp3";
@@ -40,7 +41,8 @@ export class GameComponent implements OnInit {
   }
 
   private tick() {
-    if (--this.seconds <= 0) {
+    if (--this.seconds < 1) {
+      clearInterval(this.interval);
       this.seconds = 0;
       this.sound.pause();
     }

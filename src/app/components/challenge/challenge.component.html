@@ -12,7 +12,7 @@
       <h3>Aceptar/Rechazar</h3>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-8 users" *ngFor="let user of users | async">
+  <div class="col-xs-12 col-sm-8 users" *ngFor="let user of users">
     <div class="col-xs-6 col-sm-6">
       <h4>{{user.username}}</h4>
     </div>
@@ -20,7 +20,7 @@
       <a class="btn btn-success" routerLink="/challenges/1">
         <i class="fa fa-check" aria-hidden="true"></i>
       </a>
-      <a class="btn btn-danger" (click)="rejectChallenge()">
+      <a class="btn btn-danger">
         <i class="fa fa-times" aria-hidden="true"></i>
       </a>
     </div>
@@ -33,34 +33,34 @@
     <button class="btn btn-info" (click)=createChallenge()>Retar!</button>
   </div>
   <div class="col-xs-12 col-sm-8">
-    <div [hidden]="!newChallenge">
+    <div [hidden]="!toDoChallenge">
       <div class="alert alert-danger" *ngIf="message">
         {{message}}
       </div>
-      <form class="omb_loginForm" #challengeForm="ngForm">
+      <form class="omb_loginForm" #challengeForm="ngForm" (ngSubmit)="saveChallenge()">
         <div class="input-group form-group">
           <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
-          <select class="form-control" name="subject" required>
-            <option value="t1" selected="true">Tema 1</option>
-            <option value="t2">Tema 2</option>
-            <option value="t3">Tema 3</option>
+          <select class="form-control" name="subject" required [(ngModel)]="challenge.uid" #subject="ngModel">
+            <option [value]="available.uid" *ngFor="let available of availables">
+              {{available.username}}
+            </option>
           </select>
         </div>
-        <!-- <div [hidden]="subject.valid || subject.pristine" class="alert alert-danger">
-          Subject is Required
-        </div> -->
+        <div [hidden]="subject.valid || subject.pristine" class="alert alert-danger">
+          User is Required
+        </div>
 
         <div class="input-group form-group">
-          <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
-          <select class="form-control" name="user" required>
-            <option value="usr1" selected="true">Usuario 1</option>
-            <option value="usr2">Usuario 2</option>
-            <option value="usr3">Usuario 3</option>
+          <span class="input-group-addon"><i class="fa fa-gavel" aria-hidden="true"></i></span>
+          <select class="form-control" name="level" [(ngModel)]="challenge.level" required #level="ngModel">
+            <option value="easy" selected="true">Fácil</option>
+            <option value="intermediate">Intermedio</option>
+            <option value="hard">Difícil</option>
           </select>
         </div>
-        <!-- <div [hidden]="user.valid || user.pristine" class="alert alert-danger">
-          Subject is Required
-        </div> -->
+        <div [hidden]="level.valid || level.pristine" class="alert alert-danger">
+          Level is Required
+        </div>
 
         <button class="btn btn-lg btn-primary btn-block" [disabled]="!challengeForm.form.valid" type="submit">
           Enviar

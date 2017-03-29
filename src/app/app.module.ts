@@ -53,7 +53,9 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     FlashMessagesModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

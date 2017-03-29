@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
                 lastname: '',
                 username: user.auth.displayName || user.auth.email,
                 email: user.auth.email,
-                gender: 'o'
+                gender: 'o',
+                score: 0
               });
             }
             this.router.navigate(['/user/edit']);
@@ -73,7 +74,8 @@ export class LoginComponent implements OnInit {
               lastname: '',
               username: user.auth.displayName || user.auth.email,
               email: user.auth.email,
-              gender: 'o'
+              gender: 'o',
+              score: 0
             });
           }
           this.router.navigate(['/user/edit']);
