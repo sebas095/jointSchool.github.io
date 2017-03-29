@@ -60,3 +60,15 @@ img {
 .icon {
   font-size: 8rem;
 }
+
+#easy {
+  background-color: #57f24a;
+}
+
+#intermediate {
+  background-color: #eeaa6b;
+}
+
+#hard {
+  background-color: #f76868;
+}
