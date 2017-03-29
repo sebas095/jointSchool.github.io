@@ -4,21 +4,21 @@
 </div><br>
 
 <div class="topics">
-  <div class="card" id="easy">
+  <div class="card" id="easy" (click)="changeTitle('Fácil')">
     <div class="container">
       <h4><b>Fácil</b></h4>
       <span class="big"><i class="fa fa-smile-o" aria-hidden="true"></i></span>
     </div>
   </div>
 
-  <div class="card" id="intermediate">
+  <div class="card" id="intermediate" (click)="changeTitle('Intermedio')">
     <div class="container">
       <h4><b>Intermedio</b></h4>
       <span class="big"><i class="fa fa-pencil" aria-hidden="true"></i></span>
     </div>
   </div>
 
-  <div class="card" id="hard">
+  <div class="card" id="hard" (click)="changeTitle('Difícil')">
     <div class="container">
       <h4><b>Difícil</b></h4>
       <span class="big"><i class="fa fa-book" aria-hidden="true"></i></span>
@@ -26,7 +26,8 @@
   </div>
 </div>
 
-<div class="scores">
+<div class="scores" [hidden]="!tops">
+  <h3>Top 5 - Nivel {{title}}</h3>
   <div class="card">
     <div class="container">
       <div class="profile">
