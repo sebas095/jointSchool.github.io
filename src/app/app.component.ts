@@ -23,7 +23,6 @@ export class AppComponent {
     });
 
     this.router.events.subscribe(ev => {
-      console.log(ev['url']);
       switch (ev['url']) {
         case '/':
           this.backgroundColor = '#eabed0';
