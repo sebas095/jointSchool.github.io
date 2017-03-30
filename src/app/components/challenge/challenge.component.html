@@ -17,7 +17,7 @@
           <h4>{{user.username}}</h4>
         </div>
         <div class="col-xs-6 col-sm-6 small">
-          <a class="btn btn-success" [routerLink]="['/challenges', user.subject, user.challenge]">
+          <a class="btn btn-success" [routerLink]="['/challenges', user.subject, user.challenge, user.uid]">
             <i class="fa fa-check" aria-hidden="true"></i>
           </a>
           <a class="btn btn-danger" (click)="deleteChallenge(user.$key)">

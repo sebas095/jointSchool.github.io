@@ -59,6 +59,7 @@ export class ChallengeComponent implements OnInit {
             const index = Math.ceil(Math.random() * topics.length);
 
             ref.set({
+              uid: this.auth.fireAuth.uid + uid,
               player1: this.auth.fireAuth.uid,
               player2: uid,
               subject: this.challenge.level,
