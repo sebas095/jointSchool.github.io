@@ -44,15 +44,27 @@ export class ChallengeComponent implements OnInit {
     this.toDoChallenge = !this.toDoChallenge;
   }
 
+  deleteChallenge(uid) {
+    this.af.database.object(`/challenges/${uid}`).remove();
+  }
+
   saveChallenge() {
     const ref = this.af.database.object(`/challenges/${this.auth.currentUser.uid + this.challenge.uid}`, {preserveSnapshot: true });
     ref.subscribe(data => {
+      const uid = this.challenge.uid;
+
       if (!data.val()) {
-        ref.set({
-            player1: this.auth.currentUser.uid,
-            player2: this.challenge.uid,
-            subject: this.challenge.level,
-            finish: false
+        this.af.database.list(`/topics/${this.challenge.level}`)
+          .subscribe(topics => {
+            const index = Math.ceil(Math.random() * topics.length);
+
+            ref.set({
+              player1: this.auth.fireAuth.uid,
+              player2: uid,
+              subject: this.challenge.level,
+              finish: false,
+              challenge: topics[index - 1].uid
+            });
           });
 
         this.fms.show('Tu reto ha sido enviado exitosamente', {

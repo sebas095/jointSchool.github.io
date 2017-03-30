@@ -11,8 +11,8 @@
 <div class="game" *ngIf="play">
   <div class="card">
     <div class="container">
-      4 + 5 * 7 =
-      <input type="text"> ?
+      <img [src]="challenge.questionUrl" alt="question">
+      <input type="text" class="form-control size" [(ngModel)]="answer" placeholder="Escribe la letra de la respuesta">
     </div>
   </div>
   <div class="opt">

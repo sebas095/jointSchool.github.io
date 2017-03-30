@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'app-game',
@@ -7,14 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
   play: boolean = false;
-  seconds: number = 10;
+  challenge: any;
   sound: any;
+  seconds: number;
   interval: any;
+  answer: string = '';
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute, private af: AngularFire) {
   }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+        const level = params['level'];
+        const challengeId = params['id'];
+        this.af.database.object(`/topics/${level}/${challengeId}`, {preserveSnapshot: true})
+          .subscribe(data => {
+            this.challenge = data.val();
+            this.seconds = data.val().time;
+          });
+      });
   }
 
   start() {

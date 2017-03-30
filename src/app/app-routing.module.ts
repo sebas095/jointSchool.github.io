@@ -21,7 +21,7 @@ import { ScoreComponent } from './components/score/score.component';
       {path: 'user/profile', component: ProfileComponent},
       {path: 'login', component: LoginComponent},
       {path: 'challenges/list', component: ChallengeComponent},
-      {path: 'challenges/:id', component: GameComponent},
+      {path: 'challenges/:level/:id', component: GameComponent},
       {path: 'scores', component: ScoreComponent}
     ])
   ],

@@ -17,7 +17,11 @@ export class RegisterComponent implements OnInit {
     gender: 'f',
     email: '',
     password: '',
-    score: 0
+    easy: 0,
+    intermediate: 0,
+    hard: 0,
+    win: 0,
+    games: 0
   };
 
   constructor(private af: AngularFire, private auth: AuthService, private router: Router) { }
@@ -35,7 +39,11 @@ export class RegisterComponent implements OnInit {
           username: this.user.username,
           email: this.user.email,
           gender: this.user.gender,
-          score: 0
+          easy: 0,
+          intermediate: 0,
+          hard: 0,
+          win: 0,
+          games: 0
         });
 
         this.router.navigate(['/login']);
@@ -53,5 +61,9 @@ interface IUser {
   gender: string;
   email: string;
   password: string;
-  score: number;
+  easy: number;
+  intermediate: number;
+  hard: number;
+  win: number;
+  games: number;
 }

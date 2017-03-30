@@ -25,11 +25,15 @@ img {
 
 .game .card {
   min-width: 80%;
-  background-color: #aad2f4;
+  background-color: white;
   margin: 8px 0;
 }
 
 .opt {
   text-align: center;
   display: block;
+}
+
+.size {
+  width: 50%;
 }
