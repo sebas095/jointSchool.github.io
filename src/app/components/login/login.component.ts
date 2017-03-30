@@ -51,7 +51,11 @@ export class LoginComponent implements OnInit {
                 username: user.auth.displayName || user.auth.email,
                 email: user.auth.email,
                 gender: 'o',
-                score: 0
+                easy: 0,
+                intermediate: 0,
+                hard: 0,
+                win: 0,
+                games: 0
               });
             }
             this.router.navigate(['/user/edit']);
@@ -75,7 +79,11 @@ export class LoginComponent implements OnInit {
               username: user.auth.displayName || user.auth.email,
               email: user.auth.email,
               gender: 'o',
-              score: 0
+              easy: 0,
+              intermediate: 0,
+              hard: 0,
+              win: 0,
+              games: 0
             });
           }
           this.router.navigate(['/user/edit']);

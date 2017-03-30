@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AngularFire } from 'angularfire2';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-game',
@@ -7,14 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
   play: boolean = false;
-  seconds: number = 10;
+  enabled: boolean = true;
+  challenge: any;
   sound: any;
+  seconds: number;
   interval: any;
+  answer: string = '';
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute, private af: AngularFire,
+              private router: Router, private fms: FlashMessagesService) {
   }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+        const level = params['level'];
+        const challengeId = params['id'];
+        this.af.database.object(`/topics/${level}/${challengeId}`, {preserveSnapshot: true})
+          .subscribe(data => {
+            this.challenge = data.val();
+            this.seconds = data.val().time;
+          });
+      });
   }
 
   start() {
@@ -24,6 +40,26 @@ export class GameComponent implements OnInit {
     this.sound.src = "/assets/media/clock.mp3";
     this.sound.load();
     this.sound.play();
+  }
+
+  finish() {
+    this.enabled = false;
+    if (this.answer.toLowerCase().trim() === this.challenge.answer) {
+      this.sound.pause();
+      this.win();
+      this.fms.show('Felicitaciones has ganado 1 punto', {
+        cssClass: 'alert-success',
+        timeout: 5000
+      });
+    } else {
+      this.sound.pause();
+      this.lose();
+      this.fms.show('Lo sentimos perdiste, pero sigue esforzandote!!', {
+        cssClass: 'alert-danger',
+        timeout: 5000
+      });
+    }
+    this.router.navigate(['/challenges/list']);
   }
 
   win() {
