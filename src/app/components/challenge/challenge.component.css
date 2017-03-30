@@ -90,3 +90,19 @@
 .btn-ch {
   margin-bottom: 10px;
 }
+
+h1 {
+  font-size: 4em;
+  font-weight: bold;
+  color: #449930;
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #449930;
+}
+
+.fa-gamepad {
+  color: #fff;
+}

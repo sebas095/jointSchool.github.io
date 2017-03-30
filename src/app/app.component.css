@@ -1,3 +1,22 @@
 * {
   font-family: 'Annie Use Your Telescope', cursive;
 }
+
+nav {
+  font-size: 1.8em;
+  background: transparent;
+  border: none;
+}
+
+.navbar-nav {
+  color: #333;
+}
+
+.navbar-default .navbar-nav>.active>a {
+  background: transparent;
+  font-weight: bold;
+}
+
+li:hover {
+  font-weight: bold;
+}

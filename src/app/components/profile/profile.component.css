@@ -22,3 +22,16 @@
 .school {
   color: #e0b314;
 }
+
+.glyphicon-user {
+  color: #7c3552;
+}
+
+.navbar-nav {
+  color: #eee;
+}
+
+.navbar-default .navbar-nav>.active>a {
+  background: transparent;
+  font-weight: bold;
+}
