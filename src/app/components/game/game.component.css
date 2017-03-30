@@ -4,11 +4,13 @@
 }
 
 .card {
+  text-align: center;
   display: inline-block;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
   transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  /*border-radius: 5px;*/
 }
 
 .card:hover {
@@ -16,7 +18,8 @@
 }
 
 img {
-  border-radius: 5px 5px 0 0;
+  /*border-radius: 5px 5px 0 0;*/
+  max-width: 100%;
 }
 
 .container {
@@ -34,7 +37,6 @@ img {
   display: block;
 }
 
-<<<<<<< HEAD
 h1 {
   font-size: 4em;
   font-weight: bold;
@@ -109,4 +111,12 @@ h4 {
 
 .size {
   width: 50%;
+}
+
+input  {
+  background: #eee !important;
+  border: 1px solid #eee;
+  font-size: 1.3em;
+  font-weight: bold;
+  box-shadow: none;
 }

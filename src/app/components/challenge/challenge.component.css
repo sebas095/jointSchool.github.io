@@ -227,3 +227,8 @@ h4 {
   -o-transition: all 0s ease-out;
   -ms-transition: all 0s ease-out;
 }
+
+.alert-success {
+  font-size: 1.5em;
+  padding: 5px;
+}
