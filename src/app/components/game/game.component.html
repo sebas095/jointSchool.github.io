@@ -12,10 +12,10 @@
   <div class="card">
     <div class="container">
       <img [src]="challenge.questionUrl" alt="question">
-      <input type="text" class="form-control size" [(ngModel)]="answer" placeholder="Escribe la letra de la respuesta">
+      <input [disabled]="seconds < 1 || !enabled" type="text" class="form-control size" [(ngModel)]="answer" placeholder="Escribe la letra de la respuesta">
     </div>
   </div>
   <div class="opt">
-    <button class="btn btn-success">Terminar</button>
+    <button class="btn btn-success" (click)="finish()">Terminar</button>
   </div>
 </div>
