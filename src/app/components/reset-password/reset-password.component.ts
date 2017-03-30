@@ -12,7 +12,7 @@ export class ResetPasswordComponent implements OnInit {
   email: string = '';
   message: string = '';
 
-  constructor(private router: Router, private auth: AuthService, private fms: FlashMessagesService) { }
+  constructor(private router: Router, public auth: AuthService, public fms: FlashMessagesService) { }
 
   ngOnInit() {
   }
