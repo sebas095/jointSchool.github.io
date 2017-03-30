@@ -187,3 +187,25 @@ h1 {
   font-weight: bold;
   color: #41ba9b;
 }
+
+h2 {
+  font-size: 3em;
+  font-weight: bold;
+  color: #41ba9b;
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #41ba9b;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #41ba9b;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff !important;
+}

@@ -8,13 +8,13 @@ nav {
   border: none;
 }
 
-.navbar-nav {
-  color: #333;
+.navbar-default .navbar-nav>li>a, .navbar-inverse .navbar-nav>li>a {
+  color: #fff;
 }
-
-.navbar-default .navbar-nav>.active>a {
+.navbar-default .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a {
   background: transparent;
   font-weight: bold;
+  color: #fff;
 }
 
 li:hover {

@@ -45,6 +45,9 @@ export class AppComponent {
         case '/user/create':
           this.backgroundColor = '#f5ab35';
           break;
+        case '/user/recovery':
+          this.backgroundColor = '#a2ded0';
+          break;
         // Challenges
         default:
           this.backgroundColor = '#f1b894';
