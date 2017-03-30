@@ -50,7 +50,7 @@ export class AppComponent {
           break;
         // Challenges
         default:
-          this.backgroundColor = '#f1b894';
+          this.backgroundColor = '#f5d76e';
           break;
       }
     });

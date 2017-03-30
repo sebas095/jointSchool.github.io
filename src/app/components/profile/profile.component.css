@@ -1,5 +1,5 @@
 .glyphicon-user {
-  font-size: 10em;
+  font-size: 11em;
 }
 
 .center {
@@ -24,7 +24,7 @@
 }
 
 .glyphicon-user {
-  color: #7c3552;
+  color: #fff;
 }
 
 .navbar-nav {
@@ -33,5 +33,16 @@
 
 .navbar-default .navbar-nav>.active>a {
   background: transparent;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: bold;
+  color: #7c3552;
+}
+
+a {
+  font-size: 1.5em;
   font-weight: bold;
 }

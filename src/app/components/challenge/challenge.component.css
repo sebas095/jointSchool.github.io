@@ -181,3 +181,49 @@ h4 {
 #ch {
   font-size: 11rem;
 }
+
+.input-group .form-control:last-child {
+  background: #eee !important;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 1.3em;
+  font-weight: bold;
+  box-shadow: none;
+}
+
+.input-group-addon:first-child {
+  background: #eee !important;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  box-shadow: none;
+}
+
+.alert {
+  font-size: 1.5em;
+  padding: 5px;
+}
+
+.btn-primary {
+  font-size: 2em;
+  font-weight: bold;
+  background: #4183D7;
+  border: solid 1px #446CB3;
+  -webkit-box-shadow: 0px 5px 0px 0px #446CB3;
+  box-shadow: 0px 5px 0px 0px #446CB3;
+  transition: all 0s ease-out;
+  padding: 5px;
+}
+
+.btn-primary:hover {
+  border: solid 1px #446CB3;
+  background: #2574A9;
+  -webkit-box-shadow: 0px 1px 0px 0px #446CB3;
+  box-shadow: 0px 2px 0px 0px #446CB3;
+  -webkit-transition: all 0s ease-out;
+  -moz-transition: all 0s ease-out;
+  -o-transition: all 0s ease-out;
+  -ms-transition: all 0s ease-out;
+}
