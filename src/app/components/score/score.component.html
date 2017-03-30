@@ -1,61 +1,63 @@
-<div class="text-center">
-  <h2>Puntajes</h2>
-  <i id="cup" class="fa fa-trophy" aria-hidden="true"></i>
-</div><br>
+<div class="container">
+  <div class="text-center">
+    <h1>Puntajes</h1>
+    <i id="cup" class="fa fa-trophy" aria-hidden="true"></i>
+  </div><br>
 
-<div class="topics">
-  <div class="card" id="easy" (click)="changeTitle('Fácil')">
-    <div class="container">
-      <h4><b>Fácil</b></h4>
-      <span class="big"><i class="fa fa-smile-o" aria-hidden="true"></i></span>
-    </div>
-  </div>
-
-  <div class="card" id="intermediate" (click)="changeTitle('Intermedio')">
-    <div class="container">
-      <h4><b>Intermedio</b></h4>
-      <span class="big"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-    </div>
-  </div>
-
-  <div class="card" id="hard" (click)="changeTitle('Difícil')">
-    <div class="container">
-      <h4><b>Difícil</b></h4>
-      <span class="big"><i class="fa fa-book" aria-hidden="true"></i></span>
-    </div>
-  </div>
-</div>
-
-<div class="scores" [hidden]="!tops">
-  <h3>Top 5 - Nivel {{title}}</h3>
-  <div class="card">
-    <div class="container">
-      <div class="profile">
-        <span class="icon"><i class="fa fa-female" aria-hidden="true"></i></span>
+  <div class="topics">
+    <div class="card" id="easy" (click)="changeTitle('Fácil')">
+      <div class="container">
+        <h4><b>Fácil</b></h4>
+        <span class="big"><i class="fa fa-smile-o" aria-hidden="true"></i></span>
       </div>
-      <div class="user">
-        <p>Carolina Gómez Trejos</p>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
+    </div>
+
+    <div class="card" id="intermediate" (click)="changeTitle('Intermedio')">
+      <div class="container">
+        <h4><b>Intermedio</b></h4>
+        <span class="big"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+      </div>
+    </div>
+
+    <div class="card" id="hard" (click)="changeTitle('Difícil')">
+      <div class="container">
+        <h4><b>Difícil</b></h4>
+        <span class="big"><i class="fa fa-book" aria-hidden="true"></i></span>
       </div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="container">
-      <div class="profile">
-        <span class="icon"><i class="fa fa-male" aria-hidden="true"></i></span>
+  <div class="scores" [hidden]="!tops">
+    <h3>Top 5 - Nivel {{title}}</h3>
+    <div class="card">
+      <div class="container">
+        <div class="profile">
+          <span class="icon"><i class="fa fa-female" aria-hidden="true"></i></span>
+        </div>
+        <div class="user">
+          <p>Carolina Gómez Trejos</p>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
       </div>
-      <div class="user">
-        <p>Alejandro E. Rendón</p>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
+    </div>
+
+    <div class="card">
+      <div class="container">
+        <div class="profile">
+          <span class="icon"><i class="fa fa-male" aria-hidden="true"></i></span>
+        </div>
+        <div class="user">
+          <p>Alejandro E. Rendón</p>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
   </div>

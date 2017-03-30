@@ -13,12 +13,12 @@
       <ul class="nav navbar-nav navbar-right">
         <li [class.active]="router.url === '/user/create'">
           <a routerLink="user/profile">
-            <span class="glyphicon glyphicon-user"></span> {{auth.currentUser?.username}}
+             {{auth.currentUser?.username}}
           </a>
         </li>
         <li [class.active]="router.url === '/logout'">
           <a (click)="signOut()">
-            <span class="glyphicon glyphicon-log-in"></span> Logout
+             Logout
           </a>
         </li>
       </ul>
@@ -35,8 +35,8 @@
           <li [class.active]="router.url === '/'"><a routerLink="/">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li [class.active]="router.url === '/user/create'"><a routerLink="user/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li [class.active]="router.url === '/login'"><a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li [class.active]="router.url === '/user/create'"><a routerLink="user/create">Sign Up</a></li>
+          <li [class.active]="router.url === '/login'"><a routerLink="login">Login</a></li>
         </ul>
       </div>
     </nav>

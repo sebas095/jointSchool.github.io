@@ -25,25 +25,28 @@ export class AppComponent {
     this.router.events.subscribe(ev => {
       switch (ev['url']) {
         case '/':
-          this.backgroundColor = '#3af4a8';
+          this.backgroundColor = '#eabed0';
           break;
         case '/user/profile':
-          this.backgroundColor = '#878fe2';
+          this.backgroundColor = '#d2527f';
           break;
         case '/challenges/list':
-          this.backgroundColor = '#f0e98c';
+          this.backgroundColor = '#87d37c';
           break;
         case '/scores':
           this.backgroundColor = '#f5adcf';
           break;
         case '/login':
-          this.backgroundColor = '#b4f58c';
+          this.backgroundColor = '#a2ded0';
           break;
         case '/user/edit':
           this.backgroundColor = '#d7a1f6';
           break;
         case '/user/create':
-          this.backgroundColor = '#92f7be';
+          this.backgroundColor = '#f5ab35';
+          break;
+        case '/user/recovery':
+          this.backgroundColor = '#a2ded0';
           break;
         // Challenges
         default:
