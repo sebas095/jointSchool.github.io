@@ -1,47 +1,46 @@
-<nav class="navbar navbar-inverse" *ngIf="isLogin; else defaultMenu">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/">jointSchool</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li [class.active]="router.url === '/'"><a routerLink="/">Home</a></li>
-      <li [class.active]="router.url === '/user/profile'"><a routerLink="user/profile">Profile</a></li>
-      <li [class.active]="router.url === '/challenges/list'"><a routerLink="challenges/list">Challenges</a></li>
-      <li [class.active]="router.url === '/scores'"><a routerLink="scores">Scores</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li [class.active]="router.url === '/user/create'">
-        <a routerLink="user/profile">
-          <span class="glyphicon glyphicon-user"></span> {{auth.currentUser?.username}}
-        </a>
-      </li>
-      <li [class.active]="router.url === '/logout'">
-        <a (click)="signOut()">
-          <span class="glyphicon glyphicon-log-in"></span> Logout
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<ng-template #defaultMenu>
-  <nav class="navbar navbar-inverse">
+<div class="container">
+  <nav class="navbar navbar-default navbar-static-top" *ngIf="isLogin; else defaultMenu">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" routerLink="/">jointSchool</a>
       </div>
       <ul class="nav navbar-nav">
         <li [class.active]="router.url === '/'"><a routerLink="/">Home</a></li>
+        <li [class.active]="router.url === '/user/profile'"><a routerLink="user/profile">Profile</a></li>
+        <li [class.active]="router.url === '/challenges/list'"><a routerLink="challenges/list">Challenges</a></li>
+        <li [class.active]="router.url === '/scores'"><a routerLink="scores">Scores</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li [class.active]="router.url === '/user/create'"><a routerLink="user/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li [class.active]="router.url === '/login'"><a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li [class.active]="router.url === '/user/create'">
+          <a routerLink="user/profile">
+            <span class="glyphicon glyphicon-user"></span> {{auth.currentUser?.username}}
+          </a>
+        </li>
+        <li [class.active]="router.url === '/logout'">
+          <a (click)="signOut()">
+            <span class="glyphicon glyphicon-log-in"></span> Logout
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
-</ng-template>
 
-<div class="container">
+  <ng-template #defaultMenu>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" routerLink="/">jointSchool</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li [class.active]="router.url === '/'"><a routerLink="/">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li [class.active]="router.url === '/user/create'"><a routerLink="user/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li [class.active]="router.url === '/login'"><a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  </ng-template>
   <div class="row">
     <div class="text-center">
       <flash-messages></flash-messages>
