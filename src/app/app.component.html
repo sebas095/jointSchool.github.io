@@ -5,10 +5,10 @@
         <a class="navbar-brand" routerLink="/">jointSchool</a>
       </div>
       <ul class="nav navbar-nav">
-        <li [class.active]="router.url === '/'"><a routerLink="/">Home</a></li>
-        <li [class.active]="router.url === '/user/profile'"><a routerLink="user/profile">Profile</a></li>
-        <li [class.active]="router.url === '/challenges/list'"><a routerLink="challenges/list">Challenges</a></li>
-        <li [class.active]="router.url === '/scores'"><a routerLink="scores">Scores</a></li>
+        <li [class.active]="router.url === '/'"><a routerLink="/">hola</a></li>
+        <li [class.active]="router.url === '/user/profile'"><a routerLink="user/profile">Perfile</a></li>
+        <li [class.active]="router.url === '/challenges/list'"><a routerLink="challenges/list">Retos</a></li>
+        <li [class.active]="router.url === '/scores'"><a routerLink="scores">Puntos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li [class.active]="router.url === '/user/create'">
@@ -18,7 +18,7 @@
         </li>
         <li [class.active]="router.url === '/logout'">
           <a (click)="signOut()">
-             Logout
+            Salir
           </a>
         </li>
       </ul>
@@ -32,11 +32,11 @@
           <a class="navbar-brand" routerLink="/">jointSchool</a>
         </div>
         <ul class="nav navbar-nav">
-          <li [class.active]="router.url === '/'"><a routerLink="/">Home</a></li>
+          <li [class.active]="router.url === '/'"><a routerLink="/">Hola</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li [class.active]="router.url === '/user/create'"><a routerLink="user/create">Sign Up</a></li>
-          <li [class.active]="router.url === '/login'"><a routerLink="login">Login</a></li>
+          <li [class.active]="router.url === '/user/create'"><a routerLink="user/create">Crear Usuario</a></li>
+          <li [class.active]="router.url === '/login'"><a routerLink="login">Entrar</a></li>
         </ul>
       </div>
     </nav>
