@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private af: AngularFire, private auth: AuthService, private router: Router) { }
+  constructor(private af: AngularFire, public auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }

@@ -20,7 +20,7 @@ export class ChallengeComponent implements OnInit {
   message: string = '';
 
   constructor(private af: AngularFire, private router: Router,
-              private auth: AuthService, private fms: FlashMessagesService) {  }
+              public auth: AuthService, public fms: FlashMessagesService) {  }
 
   ngOnInit() {
     this.af.database.list('/users').subscribe(users => {
