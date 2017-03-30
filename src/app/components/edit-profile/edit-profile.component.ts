@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 export class EditProfileComponent implements OnInit {
   message: string = '';
 
-  constructor(private af: AngularFire, private auth: AuthService, private router: Router) { }
+  constructor(private af: AngularFire, public auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }

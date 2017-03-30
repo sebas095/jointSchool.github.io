@@ -36,9 +36,9 @@
         <div class="input-group form-group">
           <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
           <select class="form-control" name="gender" required [(ngModel)]="auth.currentUser.gender" #gender="ngModel">
-            <option value="f" [selected]="auth.currentUser.gender === f">Femenino</option>
-            <option value="m" [selected]="auth.currentUser.gender === m">Masculino</option>
-            <option value="o" [selected]="auth.currentUser.gender === o">Otro</option>
+            <option value="f" [selected]="auth.currentUser.gender === 'f'">Femenino</option>
+            <option value="m" [selected]="auth.currentUser.gender === 'm'">Masculino</option>
+            <option value="o" [selected]="auth.currentUser.gender === 'o'">Otro</option>
           </select>
         </div>
         <div [hidden]="gender.valid || gender.pristine" class="alert alert-danger">
