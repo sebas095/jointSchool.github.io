@@ -20,3 +20,7 @@ nav {
 li:hover {
   font-weight: bold;
 }
+
+.navbar-brand {
+  padding: 5px;
+}
