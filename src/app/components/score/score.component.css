@@ -1,14 +1,15 @@
 #cup {
-  font-size: 10rem;
-  color: #f9b229;
+  font-size: 11rem;
+  color: #fff;
 }
 
 .card {
-  display: inline-block;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  /*display: inline-block;*/
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
   transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  /*border-radius: 5px;*/
 }
 
 .card:hover {
@@ -32,14 +33,14 @@ img {
 }
 
 .topics .card {
-  width: 30%;
+  /*width: 30%;*/
   cursor: pointer;
   background-color: #fbcfb6;
   margin-bottom: 5px;
 }
 
 .scores .card {
-  width: 80%;
+  /*width: 80%;*/
   background-color: #ec7ca2;
   margin: 8px 0;
 }
@@ -63,15 +64,28 @@ img {
 }
 
 #easy {
-  background-color: #57f24a;
+  background-color: #87D37C;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
 }
 
 #intermediate {
-  background-color: #eeaa6b;
+  background-color: #F5D76E;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
 }
 
 #hard {
-  background-color: #f76868;
+  background-color: #EF4836;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+}
+
+.profile {
+  padding: 10px;
 }
 
 h1 {
@@ -90,4 +104,19 @@ h3 {
   font-size: 2em;
   font-weight: bold;
   color: #ec7ca2;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+p {
+  color: #fff;
+  font-size: 2em;
+}
+
+
+.icon, .big {
+  color: #fff;
 }
