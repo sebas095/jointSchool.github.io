@@ -68,6 +68,10 @@ export class GameComponent implements OnInit {
         this.sound.pause();
         this.win();
         ref.remove();
+        this.fms.show('Felicitaciones has ganado 1 punto', {
+          cssClass: 'alert-success',
+          timeout: 5000
+        });
         this.router.navigate(['/challenges/list']);
         // user1Ref.on('value', usr1 => {
         //   const user = usr1.val();
@@ -83,6 +87,10 @@ export class GameComponent implements OnInit {
         this.sound.pause();
         this.lose();
         ref.remove();
+        this.fms.show('Lo sentimos perdiste, pero sigue esforzandote!!', {
+          cssClass: 'alert-danger',
+          timeout: 5000
+        });
         this.router.navigate(['/challenges/list']);
         // user2Ref.on('value', usr2 => {
         //   const user = usr2.val();
