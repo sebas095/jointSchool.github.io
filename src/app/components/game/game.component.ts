@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AngularFire } from 'angularfire2';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-game',
@@ -18,10 +17,13 @@ export class GameComponent implements OnInit {
   interval: any;
   answer: string = '';
   roomKey: string = '';
-  currentChallenge: any = {};
   level: string = '';
   player1: string = '';
   player2: string = '';
+  user1: any = {};
+  user2: any = {};
+  user1Ref: any = {};
+  user2Ref: any = {};
 
   constructor(private activatedRoute: ActivatedRoute, private af: AngularFire,
               private router: Router, private fms: FlashMessagesService) {
@@ -37,9 +39,36 @@ export class GameComponent implements OnInit {
           .subscribe(d => {
             this.challenge = d.val();
             this.seconds = d.val().time;
+
+            this.af.database.object(`/challenges/${this.roomKey}`, {preserveSnapshot: true})
+              .subscribe(data => {
+                  if (data.val()) {
+                    this.level = data.val().subject;
+                    this.player1 = data.val().player1;
+                    this.player2 = data.val().player2;
+
+                    this.user1Ref = this.af.database.object(`/users/${this.player1}`, {preserveSnapshot: true});
+                    this.user2Ref = this.af.database.object(`/users/${this.player2}`, {preserveSnapshot: true});
+
+                    this.user1Ref.subscribe(usr1 => {
+                      const user = usr1.val();
+                      user[this.level] = usr1.val()[this.level] + 1;
+                      user.win += 1;
+                      user.games += 1;
+                      this.user1 = user;
+
+                      this.user2Ref.subscribe(usr2 => {
+                        const user = usr2.val();
+                        user[this.level] = usr2.val()[this.level] + 1;
+                        user.win += 1;
+                        user.games += 1;
+                        this.user2 = user;
+                      });
+                    });
+                  }
+              });
           });
       });
-
   }
 
   start() {
@@ -54,57 +83,40 @@ export class GameComponent implements OnInit {
   finish() {
     this.enabled = false;
     const ref = this.af.database.object(`/challenges/${this.roomKey}`, {preserveSnapshot: true});
-    const chRef = firebase.database().ref(`/challenges/${this.roomKey}`);
 
-    // chRef.on('value', chData => {
-    //   this.level = chData.val().subject;
-    //   this.player1 = chData.val().player1;
-    //   this.player2 = chData.val().player2;
+    if (this.answer.toLowerCase().trim() === this.challenge.answer) {
+      this.user1[this.level] = this.user1[this.level] - 1;
+      this.user1.win -= 1;
 
-      // let user1Ref = firebase.database().ref(`/users/${this.player1}`)
-      // let user2Ref = firebase.database().ref(`/users/${this.player2}`)
+      this.user1Ref.set(this.user1);
+      this.user2Ref.set(this.user2);
 
-      if (this.answer.toLowerCase().trim() === this.challenge.answer) {
-        this.sound.pause();
-        this.win();
-        ref.remove();
-        this.fms.show('Felicitaciones has ganado 1 punto', {
-          cssClass: 'alert-success',
-          timeout: 5000
-        });
-        this.router.navigate(['/challenges/list']);
-        // user1Ref.on('value', usr1 => {
-        //   const user = usr1.val();
-        //   user[this.level] = usr1.val()[this.level] + 1;
-        //   user.win += 1;
-        //   user.games += 1;
-        //   user1Ref.set(user);
-        //   user1Ref = null;
-        //   ref.remove();
-        //   this.router.navigate(['/challenges/list']);
-        // });
-      } else {
-        this.sound.pause();
-        this.lose();
-        ref.remove();
-        this.fms.show('Lo sentimos perdiste, pero sigue esforzandote!!', {
-          cssClass: 'alert-danger',
-          timeout: 5000
-        });
-        this.router.navigate(['/challenges/list']);
-        // user2Ref.on('value', usr2 => {
-        //   const user = usr2.val();
-        //   console.log(user);
-        //   user[this.level] = usr2.val()[this.level] + 1;
-        //   user.win += 1;
-        //   user.games += 1;
-        //   user2Ref.set(user);
-        //   user2Ref = null;
-        //   ref.remove();
-        //   this.router.navigate(['/challenges/list']);
-        // });
-      }
-    // });
+      this.sound.pause();
+      this.win();
+
+      ref.remove();
+      this.fms.show('Felicitaciones has ganado 1 punto', {
+        cssClass: 'alert-success',
+        timeout: 5000
+      });
+      this.router.navigate(['/challenges/list']);
+    } else {
+      this.user2[this.level] = this.user2[this.level] - 1;
+      this.user2.win -= 1;
+
+      this.user1Ref.set(this.user1);
+      this.user2Ref.set(this.user2);
+
+      this.sound.pause();
+      this.lose();
+
+      ref.remove();
+      this.fms.show('Lo sentimos perdiste, pero sigue esforzandote!!', {
+        cssClass: 'alert-danger',
+        timeout: 5000
+      });
+      this.router.navigate(['/challenges/list']);
+    }
   }
 
   win() {
