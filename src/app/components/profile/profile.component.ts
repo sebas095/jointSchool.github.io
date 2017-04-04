@@ -24,8 +24,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.af.database.object(`/users/${this.auth.fireAuth.uid}`, {preserveSnapshot: true})
       .subscribe(data => {
-        const {easy, intermediate, hard, game, win} = data.val();
-        this.doughnutChartData1 = [win, game - win];
+        const {easy, intermediate, hard, games, win} = data.val();
+        this.doughnutChartData1 = [win, games - win];
         this.doughnutChartData2 = [easy, intermediate, hard];
       });
   }
