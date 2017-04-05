@@ -7,31 +7,25 @@
   <div class="topics">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+
         <div class="col-xs-12 col-sm-4">
-            <div class="card" id="easy" (click)="changeTitle('Fácil')">
-              <!-- <div class="container"> -->
+            <div class="card" id="easy" (click)="showScore('Fácil', 1)">
               <h4><b>Fácil</b></h4>
               <span class="big"><i class="fa fa-smile-o" aria-hidden="true"></i></span>
-            <!-- </div> -->
           </div>
-
         </div>
-        <div class="col-xs-12 col-sm-4">
 
-          <div class="card" id="intermediate" (click)="changeTitle('Intermedio')">
-            <!-- <div class="container"> -->
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" id="intermediate" (click)="showScore('Intermedio', 2)">
               <h4><b>Intermedio</b></h4>
               <span class="big"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-            <!-- </div> -->
           </div>
         </div>
-        <div class="col-xs-12 col-sm-4">
 
-          <div class="card" id="hard" (click)="changeTitle('Difícil')">
-            <!-- <div class="container"> -->
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" id="hard" (click)="showScore('Difícil', 3)">
               <h4><b>Difícil</b></h4>
               <span class="big"><i class="fa fa-book" aria-hidden="true"></i></span>
-            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -42,36 +36,47 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="scores" [hidden]="!tops">
         <h3>Top 5 - Nivel {{title}}</h3>
-        <div class="card">
-          <!-- <div class="container"> -->
+        <div class="card" *ngFor="let user of users;">
             <div class="profile">
-              <span class="icon"><i class="fa fa-female" aria-hidden="true"></i></span>
+              <span class="icon">
+                <i class="fa fa-female" aria-hidden="true" *ngIf="user.gender === 'f'"></i>
+                <i class="fa fa-male" aria-hidden="true" *ngIf="user.gender === 'm'"></i>
+                <i class="fa fa-users" aria-hidden="true" *ngIf="user.gender === 'o'"></i>
+              </span>
             </div>
             <div class="user">
-              <p>Carolina Gómez Trejos</p>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
+              <p>{{user.firstname}} {{user.lastname}}</p>
+              <div [ngSwitch]="user.index">
+                <div *ngSwitchCase="0">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div *ngSwitchCase="1">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div *ngSwitchCase="2">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div *ngSwitchCase="3">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <div *ngSwitchCase="4">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+              <p *ngIf="title === 'Fácil'">{{user.easy}} Puntos</p>
+              <p *ngIf="title === 'Intermedio'">{{user.intermediate}} Puntos</p>
+              <p *ngIf="title === 'Difícil'">{{user.hard}} Puntos</p>
             </div>
-          <!-- </div> -->
-        </div>
-
-        <div class="card">
-          <!-- <div class="container"> -->
-            <div class="profile">
-              <span class="icon"><i class="fa fa-male" aria-hidden="true"></i></span>
-            </div>
-            <div class="user">
-              <p>Alejandro E. Rendón</p>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-            </div>
-          <!-- </div> -->
         </div>
       </div>
     </div>
