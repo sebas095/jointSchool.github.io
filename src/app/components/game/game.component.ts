@@ -51,18 +51,18 @@ export class GameComponent implements OnInit {
                     this.user2Ref = this.af.database.object(`/users/${this.player2}`, {preserveSnapshot: true});
 
                     this.user1Ref.subscribe(usr1 => {
-                      const user = usr1.val();
-                      user[this.level] = usr1.val()[this.level] + 1;
-                      user.win += 1;
-                      user.games += 1;
-                      this.user1 = user;
+                      const user1 = usr1.val();
+                      user1[this.level] = usr1.val()[this.level] + 1;
+                      user1.win += 1;
+                      user1.games += 1;
+                      this.user1 = user1;
 
                       this.user2Ref.subscribe(usr2 => {
-                        const user = usr2.val();
-                        user[this.level] = usr2.val()[this.level] + 1;
-                        user.win += 1;
-                        user.games += 1;
-                        this.user2 = user;
+                        const user2 = usr2.val();
+                        user2[this.level] = usr2.val()[this.level] + 1;
+                        user2.win += 1;
+                        user2.games += 1;
+                        this.user2 = user2;
                       });
                     });
                   }
@@ -81,14 +81,17 @@ export class GameComponent implements OnInit {
   }
 
   finish() {
+    console.log(this.user1);
+    console.log(this.user2);
     this.enabled = false;
     const ref = this.af.database.object(`/challenges/${this.roomKey}`, {preserveSnapshot: true});
 
     if (this.answer.toLowerCase().trim() === this.challenge.answer) {
-      this.user1[this.level] = this.user1[this.level] - 1;
-      this.user1.win -= 1;
+      const user1 = Object.assign({}, this.user1);
+      user1[this.level] = this.user1[this.level] - 1;
+      user1.win -= 1;
 
-      this.user1Ref.set(this.user1);
+      this.user1Ref.set(user1);
       this.user2Ref.set(this.user2);
 
       this.sound.pause();
@@ -101,11 +104,12 @@ export class GameComponent implements OnInit {
       });
       this.router.navigate(['/challenges/list']);
     } else {
-      this.user2[this.level] = this.user2[this.level] - 1;
-      this.user2.win -= 1;
+      const user2 = Object.assign({}, this.user2);
+      user2[this.level] = this.user2[this.level] - 1;
+      user2.win = this.user2.win - 1;
 
       this.user1Ref.set(this.user1);
-      this.user2Ref.set(this.user2);
+      this.user2Ref.set(user2);
 
       this.sound.pause();
       this.lose();
