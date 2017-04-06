@@ -86,7 +86,7 @@ export class GameComponent implements OnInit {
     this.interval = setInterval(() => this.tick(), 1000);
     this.play = true;
     this.sound = new Audio();
-    this.sound.src = "/assets/media/clock.mp3";
+    this.sound.src = "assets/media/clock.mp3";
     this.sound.load();
     this.sound.play();
   }
@@ -134,14 +134,14 @@ export class GameComponent implements OnInit {
 
   win() {
     this.sound = new Audio();
-    this.sound.src = "/assets/media/win.mp3";
+    this.sound.src = "assets/media/win.mp3";
     this.sound.load();
     this.sound.play();
   }
 
   lose() {
     this.sound = new Audio();
-    this.sound.src = "/assets/media/lose.mp3";
+    this.sound.src = "assets/media/lose.mp3";
     this.sound.load();
     this.sound.play();
   }
