@@ -15,6 +15,7 @@ export class GameComponent implements OnInit {
   sound: any;
   seconds: number;
   interval: any;
+  options: Array<any>;
   answer: string = '';
   roomKey: string = '';
   level: string = '';
@@ -39,6 +40,7 @@ export class GameComponent implements OnInit {
           .subscribe(d => {
             this.challenge = d.val();
             this.seconds = d.val().time;
+            this.options = this.getOptions(d.val());
 
             this.af.database.object(`/challenges/${this.roomKey}`, {preserveSnapshot: true})
               .subscribe(data => {
@@ -71,6 +73,15 @@ export class GameComponent implements OnInit {
       });
   }
 
+  getOptions(challenge): Array<any> {
+    const keys = Object.keys(challenge.options);
+    let options = [];
+    for (let i = 0; i < keys.length; i++) {
+      options.push(challenge.options[keys[i]]);
+    }
+    return options;
+  }
+
   start() {
     this.interval = setInterval(() => this.tick(), 1000);
     this.play = true;
@@ -81,8 +92,6 @@ export class GameComponent implements OnInit {
   }
 
   finish() {
-    console.log(this.user1);
-    console.log(this.user2);
     this.enabled = false;
     const ref = this.af.database.object(`/challenges/${this.roomKey}`, {preserveSnapshot: true});
 
@@ -142,6 +151,7 @@ export class GameComponent implements OnInit {
       clearInterval(this.interval);
       this.seconds = 0;
       this.sound.pause();
+      this.finish();
     }
   }
 }

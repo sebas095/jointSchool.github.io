@@ -16,10 +16,16 @@
       <div class="col-xs-12 col-sm-9">
         <div class="game" *ngIf="play">
           <div class="card">
-            <!-- <div class="container"> -->
               <img [src]="challenge.questionUrl" alt="question">
-              <input [disabled]="seconds < 1 || !enabled" type="text" class="form-control size" [(ngModel)]="answer" placeholder="Escribe la letra de la respuesta">
-            <!-- </div> -->
+              <div class="radio" *ngFor="let option of options">
+                <label>
+                  <input
+                    type="radio" name="opt" [value]="option.uid"
+                    [disabled]="seconds < 1 || !enabled"
+                    [(ngModel)]="answer" [checked]="answer === option.uid">
+                  {{option.uid}}. {{option.value}}
+                </label>
+              </div>
           </div>
           <div class="opt">
             <button class="btn btn-success" (click)="finish()">Terminar</button>
