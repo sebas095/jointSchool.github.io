@@ -6,7 +6,6 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
-import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -28,11 +27,6 @@ const firebaseConfig = {
   messagingSenderId: "566779487328"
 };
 
-// const firebaseAuthConfig = {
-//   provider: AuthProviders.Password,
-//   method: AuthMethods.Password
-// };
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +47,6 @@ const firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     FlashMessagesModule,
-    ChartsModule
   ],
   providers: [
     AuthService

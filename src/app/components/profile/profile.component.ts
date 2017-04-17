@@ -9,15 +9,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  // Doughnut
-  doughnutChartLabels1: string[] = ['Victorias', 'Derrotas'];
-  doughnutChartData1: number[] = [];
-  doughnutChartColors1: any[] = [{backgroundColor: ['#6ab8de', '#f5da95']}];
-  doughnutChartType: string = 'doughnut';
-
-  doughnutChartLabels2: string[] = ['Fácil', 'Intermedio', 'Difícil'];
-  doughnutChartData2: number[] = [];
-  doughnutChartColors2: any[] = [{backgroundColor: ['#a3eba2', '#89f7f1', '#c191f1']}];
+  data1: Array<Item> = [];
+  data2: Array<Item> = [];
+  radius: number = 50;
+  width: number = 20;
+  fontColor: string = 'white';
+  fontSize: number= 10;
 
   constructor(private af: AngularFire, public auth: AuthService, private router: Router) { }
 
@@ -25,18 +22,68 @@ export class ProfileComponent implements OnInit {
     this.af.database.object(`/users/${this.auth.fireAuth.uid}`, {preserveSnapshot: true})
       .subscribe(data => {
         const {easy, intermediate, hard, games, win} = data.val();
-        this.doughnutChartData1 = [win, games - win];
-        this.doughnutChartData2 = [easy, intermediate, hard];
+        this.data1 = [
+          {
+            name: 'Victorias',
+            count: win,
+            color: '#6ab8de'
+          },
+          {
+            name: 'Derrotas',
+            count: games - win,
+            color: '#f5da95'
+          }
+        ];
+
+        this.data2 = [
+          {
+            name: 'Fácil',
+            count: easy,
+            color: '#a3eba2'
+          },
+          {
+            name: 'Interedio',
+            count: intermediate,
+            color: '#89f7f1'
+          },
+          {
+            name: 'Difícil',
+            count: hard,
+            color: '#c191f1'
+          }
+        ];
       });
   }
 
-  // events
-  chartClicked(e: any) {
-    console.log(e);
+  get perimeter() {
+    return Math.PI * 2 * this.radius;
   }
 
-  chartHovered(e: any) {
-    console.log(e);
+  total(items) {
+    return items
+      .map(a => a.count)
+      .reduce((x, y) => x + y);
   }
 
+  get center() {
+     return this.radius + (this.width / 2);
+  }
+
+  get viewBox() {
+    return "0 0 "+ (this.center * 2).toString() + " " + (this.center * 2).toString();
+  }
+
+  getOffset(index: number, items): number {
+    let percent: number = index === 0 ? index: items
+      .slice(0, index)
+      .map(a => a.count)
+      .reduce((x, y) => x + y);
+    return this.perimeter * percent / this.total(items);
+  }
+}
+
+interface Item {
+  name: string;
+  count: number;
+  color: string;
 }

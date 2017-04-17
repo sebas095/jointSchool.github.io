@@ -11,27 +11,35 @@
   <span class="glyphicon glyphicon-star"></span>
   <span class="glyphicon glyphicon-star"></span>
 </div>
-<div class="icons center">
-  <div class="row">
-    <div class="col-sm-6">
-      <canvas baseChart
-        [data]="doughnutChartData1"
-        [labels]="doughnutChartLabels1"
-        [colors]="doughnutChartColors1"
-        [chartType]="doughnutChartType"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)">
-      </canvas>
-    </div>
-    <div class="col-sm-6">
-      <canvas baseChart
-        [data]="doughnutChartData2"
-        [labels]="doughnutChartLabels2"
-        [colors]="doughnutChartColors2"
-        [chartType]="doughnutChartType"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)">
-    </canvas>
-    </div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <svg height="80%" width="80%" [attr.viewBox]="viewBox">
+      <g>
+        <circle *ngFor="let item of data1;let i=index" [attr.cx]="center"
+         [attr.cy]="center" [attr.r]="radius" fill="transparent" [attr.stroke-width]="width"
+         [attr.stroke-dasharray]="perimeter" [attr.stroke-dashoffset]="getOffset(i, data1)" [attr.stroke]="item.color"/>
+      </g>
+      <g>
+        <text [attr.fill]="fontColor" [attr.font-size]="fontSize" text-anchor="middle" [attr.x]="center" [attr.y]="center">
+          <tspan [attr.x]="center" dy="0">Juegos</tspan>
+         </text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="col-sm-6">
+    <svg height="80%" width="80%" [attr.viewBox]="viewBox">
+      <g>
+        <circle *ngFor="let item of data2;let i=index" [attr.cx]="center"
+         [attr.cy]="center" [attr.r]="radius" fill="transparent" [attr.stroke-width]="width"
+         [attr.stroke-dasharray]="perimeter" [attr.stroke-dashoffset]="getOffset(i, data2)" [attr.stroke]="item.color"/>
+      </g>
+      <g>
+        <text [attr.fill]="fontColor" [attr.font-size]="fontSize" text-anchor="middle" [attr.x]="center" [attr.y]="center">
+          <tspan [attr.x]="center" dy="0">Niveles</tspan>
+         </text>
+      </g>
+    </svg>
   </div>
 </div>
