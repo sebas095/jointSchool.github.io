@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
             color: '#a3eba2'
           },
           {
-            name: 'Interedio',
+            name: 'Intermedio',
             count: intermediate,
             color: '#89f7f1'
           },
